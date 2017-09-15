@@ -8,7 +8,7 @@ class node{							//tree node
 public:
     int dat;
 	node* left;node* right;
-	node(int a,node* b,node* c){	//init
+	node(int a,node* b,node* c){				//init
 	    dat=a;left=b;right=c;
 	}
 	node(int a){
@@ -21,9 +21,9 @@ public:
 };
 queue<node>q;
 void display(node* a){
-	cout<<a->dat<<'L'<<endl;		//output node dat
+	cout<<a->dat<<'L'<<endl;				//output node dat
 } 
-void bfs(node* a){					//bfs
+void bfs(node* a){						//bfs
 	if(q.empty()!=1){
 		display(a);
 		if(a->left!=0){
@@ -38,7 +38,7 @@ void bfs(node* a){					//bfs
 	
 }
 int main(){
-	//build binary tree node
+								//build binary tree node
 	node tree6(10),tree5(10),tree4(4),tree3(12,&tree6),tree2(11,&tree4,&tree5),tree1(10,&tree2,&tree3);
 	q.push(&tree1);
 	bfs(&tree1);
