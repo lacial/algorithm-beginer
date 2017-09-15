@@ -23,7 +23,7 @@ int process=0;
 void display(node* a){
 	cout<<a->dat<<'L'<<endl;			//output node dat
 } 
-void bfs(node* a){					//dfs
+void bfs(node* a){					//bfs
 	if(q.empty()!=1){
 	    display(a);
 		if(a->left!=0){
