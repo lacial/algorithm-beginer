@@ -3,12 +3,11 @@
 #include<cstdio>
 #include<queue>
 using namespace std;
-int waitnode=1;
-class node{							//tree node
+class node{						//tree node
 public:
     int dat;
 	node* left;node* right;
-	node(int a,node* b,node* c){				//init
+	node(int a,node* b,node* c){			//init
 	    dat=a;left=b;right=c;
 	}
 	node(int a){
@@ -19,13 +18,14 @@ public:
 	}
 	~node(){}
 };
-queue<node>q;
+queue<node*>q;
+int process=0;
 void display(node* a){
-	cout<<a->dat<<'L'<<endl;				//output node dat
+	cout<<a->dat<<'L'<<endl;			//output node dat
 } 
-void bfs(node* a){						//bfs
+void bfs(node* a){					//dfs
 	if(q.empty()!=1){
-		display(a);
+	    display(a);
 		if(a->left!=0){
 			q.push(a->left);
 		}
@@ -33,13 +33,13 @@ void bfs(node* a){						//bfs
 			q.push(a->right);
 		}
 	q.pop();
-	bfs(q.top());
+	bfs(q.front());
 	}
-	
+	return;
 }
 int main(){
-								//build binary tree node
-	node tree6(10),tree5(10),tree4(4),tree3(12,&tree6),tree2(11,&tree4,&tree5),tree1(10,&tree2,&tree3);
+							//build binary tree node
+	node tree6(6),tree5(5),tree4(4),tree3(3,&tree6),tree2(2,&tree4,&tree5),tree1(1,&tree2,&tree3);
 	q.push(&tree1);
 	bfs(&tree1);
 	return 0;
