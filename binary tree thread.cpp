@@ -2,12 +2,12 @@
 #include<string>
 #include<cstdio>
 using namespace std;
-class node{							//tree node
+class node{								//tree node
 public:
     	int dat;
 	node* left;node* right;
 	int ltg;int rtg;
-	node(int a,node* b,node* c){				           //init
+	node(int a,node* b,node* c){				         //init
 	    dat=a;left=b;right=c;
 	}
 	node(int a){
@@ -20,7 +20,7 @@ public:
 };
 void display(node* a){
 	
-	cout<<a->dat<<'L'<<endl;				              //output node dat
+	cout<<a->dat<<'L'<<endl;				        //output node dat
 } 
 void thread(node* a,node* pre){					        //thread & dfs
 	if(a){
@@ -38,9 +38,9 @@ void thread(node* a,node* pre){					        //thread & dfs
 	}
 }
 int main(){
-								                              //build binary tree node
+								      //build binary tree node
 	node tree6(6),tree5(5),tree4(4),tree3(3,&tree6),tree2(2,&tree4,&tree5),tree1(1,&tree2,&tree3);
-	node pre(0);                                //build pre
+	node pre(0);                                		      //build pre
 	thread(&tree1,&pre);
 	return 0;
 }
